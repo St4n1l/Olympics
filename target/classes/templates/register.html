@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <style>
+        body { background-color: #f0f4f8; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">🏔️ Register as Athlete</h2>
+                <p class="text-muted">Create your account to participate</p>
+            </div>
+            <div class="card">
+                <div class="card-body p-4">
+                    <div id="alert" class="alert d-none"></div>
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" placeholder="johndoe"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Full name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Country</label>
+                        <input type="text" id="country" class="form-control" placeholder="Bulgaria"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gender</label>
+                        <select id="gender" class="form-select">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Date of birth</label>
+                        <input type="date" id="dob" class="form-control"/>
+                    </div>
+                    <button class="btn btn-dark w-100" onclick="register()">Register</button>
+                    <div class="text-center mt-3">
+                        <a href="/" class="text-muted">← Back to home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    async function register() {
+        const body = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            name: document.getElementById('name').value,
+            country: document.getElementById('country').value,
+            gender: document.getElementById('gender').value,
+            dateOfBirth: document.getElementById('dob').value
+        };
+        const res = await fetch('/api/register', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(body)
+        });
+        const alert = document.getElementById('alert');
+        alert.classList.remove('d-none', 'alert-success', 'alert-danger');
+        if (res.ok) {
+            alert.classList.add('alert-success');
+            alert.textContent = 'Registered successfully! You can now log in.';
+        } else {
+            alert.classList.add('alert-danger');
+            alert.textContent = 'Registration failed. Username or email may already exist.';
+        }
+    }
+</script>
+</body>
+</html>

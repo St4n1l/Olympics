@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1780b4ef-84e7-4129-8163-609c5230cbc7" name="Changes" comment="Fully working olympics app">
+      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/OlympicsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/config/LoggingAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/AdminViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/AthleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/AthleteViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/BiathlonController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/BiathlonViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/CompetitionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/OlympicsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/OlympicsViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/RegistrationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/RegistrationViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/SlalomController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/controller/SlalomViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/AthleteDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/AthleteRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/BiathlonResultRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/CompetitionRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/OlympicsRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/RegistrationRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/dto/SlalomResultRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/Athlete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/BiathlonResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/Competition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/CompetitionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/CompetitionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/Olympics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/entity/SkiSlalomResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/repository/AthleteRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/repository/BiathlonResultRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/repository/CompetitionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/repository/OlympicsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/repository/SkiSlalomResultRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/service/AthleteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/service/BiathlonService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/service/KeycloakAdminService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/service/OlympicsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Olympics/service/SkiSlalomService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/biathlon-results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/create-competition.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/create-olympics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/slalom-results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/athletes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/olympics-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ranking-biathlon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ranking-slalom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/Olympics/OlympicsApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/Olympics/dto/DtoValidationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/Olympics/service/AthleteAgeValidationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/Olympics/service/BiathlonServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/Olympics/service/OlympicsServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/Olympics/service/SkiSlalomServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/OlympicsApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/config/LoggingAspect.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/config/SecurityConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/AdminViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/AthleteController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/AthleteViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/BiathlonController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/BiathlonViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/CompetitionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/HomeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/OlympicsController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/OlympicsViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/RegistrationController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/RegistrationViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/SlalomController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/controller/SlalomViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/AthleteDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/AthleteRequestDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/BiathlonResultRequestDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/CompetitionRequestDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/OlympicsRequestDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/RegistrationRequestDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/dto/SlalomResultRequestDto.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Athlete$AthleteBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Athlete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/BiathlonResult$BiathlonResultBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/BiathlonResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Competition$CompetitionBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Competition.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/CompetitionStatus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/CompetitionType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Gender.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Olympics$OlympicsBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/Olympics.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/SkiSlalomResult$SkiSlalomResultBuilder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/entity/SkiSlalomResult.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/exception/NotFoundException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/repository/AthleteRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/repository/BiathlonResultRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/repository/CompetitionRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/repository/OlympicsRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/repository/SkiSlalomResultRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/service/AthleteService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/service/BiathlonService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/service/KeycloakAdminService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/service/OlympicsService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/example/Olympics/service/SkiSlalomService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/biathlon-results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/create-competition.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/create-olympics.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/admin/slalom-results.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/athletes.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/fragments/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/olympics-detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/ranking-biathlon.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/ranking-slalom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/Olympics/OlympicsApplicationTests.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/Olympics/dto/DtoValidationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/Olympics/service/AthleteAgeValidationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/Olympics/service/BiathlonServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/Olympics/service/OlympicsServiceTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/Olympics/service/SkiSlalomServiceTest.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3E20GLQm0cCyo81n8gsAyPIe9It" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Unnamed.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JUnit.All in Olympics.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.OlympicsApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/shadzhiev/Coding/Java Uni/Olympics",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/admin" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.Olympics.service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Unnamed">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.Olympics.OlympicsApplication" />
+      <module name="Olympics" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Olympics" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Olympics" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="JUnit.All in Olympics" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in Olympics" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.24374.151" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.24374.151" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1780b4ef-84e7-4129-8163-609c5230cbc7" name="Changes" comment="" />
+      <created>1779361261425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779361261425</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fully working olympics app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully working olympics app" />
+  </component>
+</project>

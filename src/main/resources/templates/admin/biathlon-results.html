@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Biathlon Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <style>
+        body { background-color: #f0f4f8; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">🎯 Biathlon Results</h2>
+                <a href="/admin/dashboard" class="text-muted">← Back</a>
+            </div>
+            <div class="card">
+                <div class="card-body p-4">
+                    <div id="alert" class="alert d-none"></div>
+                    <div class="mb-3">
+                        <label class="form-label">Competition</label>
+                        <select id="competition" class="form-select"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Athlete</label>
+                        <select id="athlete" class="form-select"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Ski time (seconds)</label>
+                        <input type="number" id="skiTime" class="form-control"
+                               step="0.001" placeholder="1823.500"/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Missed shots</label>
+                        <input type="number" id="missedShots" class="form-control"
+                               min="0" placeholder="2"/>
+                        <div class="form-text">Each missed shot adds 60 seconds penalty.</div>
+                    </div>
+                    <button class="btn btn-dark w-100" onclick="enterResult()">Save Result</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    async function loadDropdowns() {
+        const [comps, athletes] = await Promise.all([
+            fetch('/api/competitions').then(r => r.json()),
+            fetch('/api/athletes').then(r => r.json())
+        ]);
+
+        const biathlonComps = comps.filter(c => c.type === 'BIATHLON');
+        const compSel = document.getElementById('competition');
+        biathlonComps.forEach(c => {
+            const opt = document.createElement('option');
+            opt.value = c.id;
+            opt.textContent = c.name;
+            compSel.appendChild(opt);
+        });
+
+        const athleteSel = document.getElementById('athlete');
+        athletes.forEach(a => {
+            const opt = document.createElement('option');
+            opt.value = a.id;
+            opt.textContent = a.name + ' (' + a.country + ')';
+            athleteSel.appendChild(opt);
+        });
+    }
+
+    async function enterResult() {
+        const compId = document.getElementById('competition').value;
+        const res = await fetch('/api/biathlon/' + compId + '/result', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                athleteId: parseInt(document.getElementById('athlete').value),
+                skiTime: parseFloat(document.getElementById('skiTime').value),
+                missedShots: parseInt(document.getElementById('missedShots').value)
+            })
+        });
+        const alert = document.getElementById('alert');
+        alert.classList.remove('d-none', 'alert-success', 'alert-danger');
+        if (res.ok) {
+            alert.classList.add('alert-success');
+            alert.textContent = 'Result saved!';
+        } else {
+            alert.classList.add('alert-danger');
+            alert.textContent = 'Failed to save result.';
+        }
+    }
+
+    loadDropdowns();
+</script>
+</body>
+</html>

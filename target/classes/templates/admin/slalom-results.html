@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Slalom Results</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <style>
+    body { background-color: #f0f4f8; }
+    .card { border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .nav-pills .nav-link.active { background-color: #0f3460; }
+  </style>
+</head>
+<body>
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">⛷️ Slalom Results</h2>
+    <a href="/admin/dashboard" class="text-muted">← Back</a>
+  </div>
+
+  <ul class="nav nav-pills justify-content-center mb-4">
+    <li class="nav-item">
+      <a class="nav-link active" onclick="showTab('run1')" href="#">Run 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" onclick="showTab('run2')" href="#">Run 2</a>
+    </li>
+  </ul>
+
+  <!-- Run 1 -->
+  <div id="tab-run1">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body p-4">
+            <div id="alert-run1" class="alert d-none"></div>
+            <div class="mb-3">
+              <label class="form-label">Competition</label>
+              <select id="comp-run1" class="form-select"></select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Athlete</label>
+              <select id="athlete-run1" class="form-select"></select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Time (seconds)</label>
+              <input type="number" id="time-run1" class="form-control"
+                     step="0.001" placeholder="47.382"/>
+            </div>
+            <button class="btn btn-dark w-100" onclick="enterRun1()">
+              Save Run 1
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Run 2 -->
+  <div id="tab-run2" style="display:none">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body p-4">
+            <div id="alert-run2" class="alert d-none"></div>
+            <div class="mb-3">
+              <label class="form-label">Competition</label>
+              <select id="comp-run2" class="form-select"
+                      onchange="loadQualifiers()"></select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Qualifier (result ID)</label>
+              <select id="qualifier-run2" class="form-select"></select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Time (seconds)</label>
+              <input type="number" id="time-run2" class="form-control"
+                     step="0.001" placeholder="48.210"/>
+            </div>
+            <button class="btn btn-dark w-100" onclick="enterRun2()">
+              Save Run 2
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTab(tab) {
+    document.getElementById('tab-run1').style.display = tab === 'run1' ? 'block' : 'none';
+    document.getElementById('tab-run2').style.display = tab === 'run2' ? 'block' : 'none';
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  async function loadDropdowns() {
+    const [comps, athletes] = await Promise.all([
+      fetch('/api/competitions', {credentials: 'include'}).then(r => r.json()),
+      fetch('/api/athletes', {credentials: 'include'}).then(r => r.json())
+    ]);
+
+    const slalomComps = comps.filter(c => c.type === 'SLALOM');
+
+    ['comp-run1', 'comp-run2'].forEach(id => {
+      const sel = document.getElementById(id);
+      slalomComps.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name;
+        sel.appendChild(opt);
+      });
+    });
+
+    const athleteSel = document.getElementById('athlete-run1');
+    athletes.forEach(a => {
+      const opt = document.createElement('option');
+      opt.value = a.id;
+      opt.textContent = a.name + ' (' + a.country + ')';
+      athleteSel.appendChild(opt);
+    });
+
+    loadQualifiers();
+  }
+
+  async function loadQualifiers() {
+    const compId = document.getElementById('comp-run2').value;
+    if (!compId) return;
+    const data = await fetch('/api/slalom/' + compId + '/qualifiers',
+            {credentials: 'include'}).then(r => r.json());
+    const sel = document.getElementById('qualifier-run2');
+    sel.innerHTML = '';
+    if (data.length === 0) {
+      sel.innerHTML = '<option>No qualifiers yet — enter Run 1 first</option>';
+      return;
+    }
+    data.forEach(r => {
+      const opt = document.createElement('option');
+      opt.value = r.id;
+      opt.textContent = r.athlete.name + ' — Run 1: ' + r.run1Time + 's';
+      sel.appendChild(opt);
+    });
+  }
+
+
+  async function enterRun1() {
+    const compId = document.getElementById('comp-run1').value;
+    const res = await fetch('/api/slalom/' + compId + '/run1', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        athleteId: parseInt(document.getElementById('athlete-run1').value),
+        time: parseFloat(document.getElementById('time-run1').value)
+      })
+    });
+    showAlert('alert-run1', res.ok, res.ok ? 'Run 1 saved!' : 'Failed.');
+  }
+
+  async function enterRun2() {
+    const resultId = document.getElementById('qualifier-run2').value;
+    const res = await fetch('/api/slalom/results/' + resultId + '/run2', {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        time: parseFloat(document.getElementById('time-run2').value)
+      })
+    });
+    showAlert('alert-run2', res.ok, res.ok ? 'Run 2 saved!' : 'Failed.');
+  }
+
+  function showAlert(id, success, msg) {
+    const el = document.getElementById(id);
+    el.classList.remove('d-none', 'alert-success', 'alert-danger');
+    el.classList.add(success ? 'alert-success' : 'alert-danger');
+    el.textContent = msg;
+  }
+
+  loadDropdowns();
+</script>
+</body>
+</html>

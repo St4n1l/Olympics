@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Competition</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <style>
+        body { background-color: #f0f4f8; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    </style>
+</head>
+<body>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">🏁 Create Competition</h2>
+            </div>
+            <div class="card">
+                <div class="card-body p-4">
+                    <div id="alert" class="alert d-none"></div>
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" id="name" class="form-control"
+                               placeholder="Mens Slalom"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Type</label>
+                        <select id="type" class="form-select">
+                            <option value="SLALOM">Slalom</option>
+                            <option value="BIATHLON">Biathlon</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Gender</label>
+                        <select id="gender" class="form-select">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Minimum age</label>
+                        <input type="number" id="minAge" class="form-control"
+                               placeholder="18"/>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Olympics ID</label>
+                        <select id="olympicsId" class="form-select"></select>
+                    </div>
+                    <button class="btn btn-dark w-100" onclick="create()">Create</button>
+                    <div class="text-center mt-3">
+                        <a href="/admin/dashboard" class="text-muted">← Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Load olympics into dropdown
+    async function loadOlympics() {
+        const res = await fetch('/api/olympics');
+        const data = await res.json();
+        const select = document.getElementById('olympicsId');
+        data.forEach(o => {
+            const opt = document.createElement('option');
+            opt.value = o.id;
+            opt.textContent = o.name + ' (' + o.year + ')';
+            select.appendChild(opt);
+        });
+    }
+
+    async function create() {
+        const res = await fetch('/api/competitions', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                name: document.getElementById('name').value,
+                type: document.getElementById('type').value,
+                gender: document.getElementById('gender').value,
+                minAge: parseInt(document.getElementById('minAge').value),
+                olympicsId: parseInt(document.getElementById('olympicsId').value)
+            })
+        });
+        const alert = document.getElementById('alert');
+        alert.classList.remove('d-none', 'alert-success', 'alert-danger');
+        if (res.ok) {
+            const data = await res.json();
+            alert.classList.add('alert-success');
+            alert.textContent = 'Competition created! ID: ' + data.id;
+        } else {
+            alert.classList.add('alert-danger');
+            alert.textContent = 'Failed to create competition.';
+        }
+    }
+
+    loadOlympics();
+</script>
+</body>
+</html>
